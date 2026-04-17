@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "language": {
+    "es": "Spanish",
+    "ca": "Catalan",
+    "en": "English"
+  },
+  "routes": {
+    "home": "/en/",
+    "about": "/en/about-us/",
+    "contact": "/en/contact/"
+  }
+}

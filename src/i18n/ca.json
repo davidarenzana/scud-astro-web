@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Inici",
+    "about": "Sobre nosaltres",
+    "contact": "Contacte"
+  },
+  "language": {
+    "es": "Espanyol",
+    "ca": "Català",
+    "en": "Anglès"
+  },
+  "routes": {
+    "home": "/ca/",
+    "about": "/ca/sobre-nosaltres/",
+    "contact": "/ca/contacte/"
+  }
+}
