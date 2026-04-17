@@ -6,3 +6,7 @@
   --color-fucsia: #e175ea;
   --color-cyan: #8cf1ff;
 }
+
+@theme inline {
+  --font-sans: var(--font-lato);
+}
