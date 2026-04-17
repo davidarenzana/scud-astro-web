@@ -5,22 +5,6 @@ import { getCurrentLocale } from "../../utils/i18n";
 const currentLocale = getCurrentLocale(Astro);
 ---
 
-<header class="header">
+<header>
   <Navigation locale={currentLocale} />
 </header>
-
-<style>
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .header {
-      border-bottom-color: rgba(255, 255, 255, 0.1);
-    }
-  }
-</style>
