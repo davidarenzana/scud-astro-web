@@ -3,6 +3,7 @@
 ## Routing & i18n
 
 ### URL Structure
+
 ```
 /                 → Spanish (es)
 /ca/*             → Catalan
@@ -10,12 +11,14 @@
 ```
 
 ### Why This?
+
 - Spanish is default (primary market)
 - No prefix = cleaner URLs for default lang
 - SEO: Automatic hreflang cross-links
 - Astro native `astro:i18n` module (no dependencies)
 
 ### File Structure
+
 ```
 src/pages/
   index.astro        → / (es)
@@ -28,6 +31,7 @@ src/pages/
 ## i18n Implementation
 
 ### Translation Files
+
 ```
 src/i18n/
   es.json  # Spanish strings + routes
@@ -36,6 +40,7 @@ src/i18n/
 ```
 
 Structure:
+
 ```json
 {
   "nav": { "home": "...", "about": "..." },
@@ -46,24 +51,27 @@ Structure:
 
 ### Utilities (`src/utils/i18n.ts`)
 
-| Function | Input | Output | Use |
-|----------|-------|--------|-----|
-| `getLocaleFromPath(pathname)` | "/ca/about" | "ca" | Extract locale from URL |
-| `getCurrentLocale(astro)` | Astro context | "es" \| "ca" \| "en" | Get page's locale |
-| `getI18n(locale)` | "es" | Translation object | Access strings |
+| Function                      | Input         | Output               | Use                     |
+| ----------------------------- | ------------- | -------------------- | ----------------------- |
+| `getLocaleFromPath(pathname)` | "/ca/about"   | "ca"                 | Extract locale from URL |
+| `getCurrentLocale(astro)`     | Astro context | "es" \| "ca" \| "en" | Get page's locale       |
+| `getI18n(locale)`             | "es"          | Translation object   | Access strings          |
 
 Usage in components:
+
 ```astro
 ---
 const locale = getCurrentLocale(Astro);
 const i18n = getI18n(locale);
 ---
+
 <p>{i18n.nav.home}</p>
 ```
 
 ## Components
 
 ### Hierarchy
+
 ```
 Layout.astro
 ├── Header.astro
@@ -73,15 +81,18 @@ Layout.astro
 ```
 
 ### Layout (`src/layouts/Layout.astro`)
+
 - Sets `<html lang="">` per locale
 - Adds hreflang links for all locales (SEO)
 - Canonical tag
 
 ### Header (`src/components/sections/Header.astro`)
+
 - Imports Navigation + LanguageSwitcher
 - Receives locale as prop
 
 ### LanguageSwitcher (`src/components/LanguageSwitcher.astro`)
+
 - 3 language links
 - Highlights current locale
 - Uses `getRelativeLocaleUrl()` for correct paths
@@ -89,6 +100,7 @@ Layout.astro
 ## Configuration
 
 ### astro.config.mjs
+
 ```js
 i18n: {
   locales: ["es", "ca", "en"],
@@ -103,6 +115,7 @@ vite.resolve.alias["@"] = "./src"  // @ imports
 ```
 
 ### tsconfig.json
+
 ```json
 "paths": { "@/*": ["src/*"] }  // @ alias
 ```
@@ -110,29 +123,32 @@ vite.resolve.alias["@"] = "./src"  // @ imports
 ## Adding New Features
 
 ### New Page
+
 1. Create `src/pages/mypage.astro` (es)
 2. Create `src/pages/ca/mypage.astro` (ca)
 3. Create `src/pages/en/mypage.astro` (en)
 4. Update `src/i18n/{es,ca,en}.json`
 
 ### New Component
+
 - Use `getCurrentLocale(Astro)` to get locale
 - Use `getI18n(locale)` for strings
 - Pass locale as prop when needed
 
 ### New Translation Key
+
 1. Add to all 3 files: `src/i18n/{es,ca,en}.json`
 2. Access via: `i18n.section.key`
 
 ## Tech Stack
 
-| Tool | Purpose | Version |
-|------|---------|---------|
-| Astro | Framework | 6.1.7 |
-| Tailwind CSS | Styling | 4.2.2 |
-| TypeScript | Type safety | Latest |
-| pnpm | Package manager | Latest |
-| Prettier | Code formatting | 3.8.3 |
+| Tool         | Purpose         | Version |
+| ------------ | --------------- | ------- |
+| Astro        | Framework       | 6.1.7   |
+| Tailwind CSS | Styling         | 4.2.2   |
+| TypeScript   | Type safety     | Latest  |
+| pnpm         | Package manager | Latest  |
+| Prettier     | Code formatting | 3.8.3   |
 
 ## SEO
 

@@ -1,14 +1,17 @@
 # GitHub Copilot Instructions for scud-astro-web
 
 ## 🔗 Project Reference
+
 See `.agent.md` for full context (architecture, stack, commands)
 
 ## Commit Message Rules
+
 **Format**: Conventional Commits — `<type(scope)>: description`
+
 - **Max 50 chars** on first line (including type+scope)
 - **Imperative mood**: "add", "fix", "refactor" (not "added")
 - **Scope**: Optional but recommended
-- **Examples**: 
+- **Examples**:
   - `feat(pages): add about us section`
   - `fix(i18n): handle missing locale fallback`
   - `config(astro): update vite settings`
@@ -18,12 +21,14 @@ See `.agent.md` for full context (architecture, stack, commands)
 **Details**: `.github/instructions/copilot-commit-message.md`
 
 ## i18n Guidelines
+
 - Always add/update translations in all 3 files: `src/i18n/{es,ca,en}.json`
 - Use `getCurrentLocale(Astro)` in components
 - Use `getI18n(locale)` to access strings
 - Locale detection: automatic from URL pathname
 
 ## When in doubt
+
 1. Check `.agent.md` (quick reference)
 2. Check `ARCHITECTURE.md` (structure details)
 3. Check existing code (components/pages patterns)

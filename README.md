@@ -45,9 +45,9 @@ To learn more about the folder structure of an Astro project, refer to [our guid
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `pnpm install`         | Installs dependencies                            |
 | `pnpm dev`             | Starts local dev server at `localhost:4321`      |
 | `pnpm build`           | Build your production site to `./dist/`          |
 | `pnpm preview`         | Preview your build locally, before deploying     |
@@ -55,16 +55,19 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
 ## Development
+
 - **Commits**: Follow Conventional Commits — see `.copilot-instructions`
 - **i18n**: Add strings to all 3 translation files
 - **New pages**: Create in pages/, pages/ca/, pages/en/
 
 ## References
+
 - **Full context**: `.agent.md`
 - **Architecture**: `ARCHITECTURE.md`
 - **Commit rules**: `.github/instructions/copilot-commit-message.md`
 
 ---
+
 **Company**: Scud Security  
 **Website**: https://scudsecurity.com  
 **Location**: Barcelona, Spain
