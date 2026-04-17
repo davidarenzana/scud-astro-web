@@ -1,0 +1,19 @@
+# GitHub Copilot Instructions
+
+This file contains instructions for GitHub Copilot when working in this repository.
+
+## Commit Message Guidelines
+
+When creating commit messages, always follow the guidelines in [.github/instructions/copilot-commit-message.md](.github/instructions/copilot-commit-message.md)
+
+**Key rules:**
+
+- Use Conventional Commits format: `<type>(<scope>): <description>`
+- Keep first line under 50 characters
+- Use imperative mood (add, fix, refactor, not added/fixes/refactoring)
+- No period at the end
+- Scope is optional but recommended
+
+**Common types:** feat, fix, refactor, perf, docs, style, test, build, ci, chore, revert
+
+Example: `feat(astro): add dark mode support`
