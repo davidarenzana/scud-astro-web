@@ -1,8 +1,9 @@
 {
   "nav": {
-    "home": "Inicio",
-    "about": "Sobre nosotros",
-    "contact": "Contacto"
+    "services": "Servicios",
+    "how": "¿Cómo funciona?",
+    "why": "¿Por qué Scud?",
+    "hacked": "¿Te han hackeado?"
   },
   "language": {
     "es": "Español",
@@ -10,8 +11,9 @@
     "en": "Inglés"
   },
   "routes": {
-    "home": "/",
-    "about": "/sobre-nosotros/",
-    "contact": "/contacto/"
+    "services": "#services",
+    "how": "#how",
+    "why": "#why",
+    "hacked": "#hacked"
   }
 }
