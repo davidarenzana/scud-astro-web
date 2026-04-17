@@ -10,9 +10,10 @@ const { locale = "es" } = Astro.props;
 const i18n = getI18n(locale);
 
 const navItems = [
-  { key: "home", label: i18n.nav.home, href: i18n.routes.home },
-  { key: "about", label: i18n.nav.about, href: i18n.routes.about },
-  { key: "contact", label: i18n.nav.contact, href: i18n.routes.contact },
+  { key: "services", label: i18n.nav.services, href: i18n.routes.services },
+  { key: "how", label: i18n.nav.how, href: i18n.routes.how },
+  { key: "why", label: i18n.nav.why, href: i18n.routes.why },
+  { key: "hacked", label: i18n.nav.hacked, href: i18n.routes.hacked },
 ];
 ---
 
