@@ -48,7 +48,9 @@ const langMap: Record<Locale, string> = {
   </head>
   <body class="bg-background text-white">
     <Header />
-    <slot />
+    <main class="max-w-[1440px] mx-auto px-4 w-full">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

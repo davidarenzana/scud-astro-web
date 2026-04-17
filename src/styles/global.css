@@ -2,9 +2,10 @@
 
 @theme {
   --color-primary: #ec6565;
-  --color-background: #0e0a18;
   --color-fucsia: #e175ea;
   --color-cyan: #8cf1ff;
+  --color-background: #0e0a18;
+  --color-background-glass: #2c2936f2;
 }
 
 @theme inline {
