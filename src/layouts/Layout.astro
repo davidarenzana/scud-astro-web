@@ -1,23 +1,56 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getCurrentLocale, type Locale } from "../utils/i18n";
+
+const currentLocale = getCurrentLocale(Astro);
+const locales: Locale[] = ["es", "ca", "en"];
+
+// Obtener la ruta sin prefijo de idioma para generar hreflang
+const pathname = Astro.url.pathname;
+const pathWithoutLocale = pathname
+  .replace(/^\/(ca|en)\//, "/")
+  .replace(/^\/$/, "");
+
+// Mapeo de locales a códigos de idioma HTML
+const langMap: Record<Locale, string> = {
+  es: "es-ES",
+  ca: "ca-ES",
+  en: "en-US",
+};
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang={langMap[currentLocale]}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+
+    <!-- hreflang links para SEO multiidioma -->
+    {
+      locales.map((locale) => (
+        <link
+          rel="alternate"
+          hreflang={locale}
+          href={getRelativeLocaleUrl(locale, pathWithoutLocale)}
+        />
+      ))
+    }
+    <link rel="canonical" href={Astro.url.pathname} />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
