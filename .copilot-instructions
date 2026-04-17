@@ -1,19 +1,29 @@
-# GitHub Copilot Instructions
+# GitHub Copilot Instructions for scud-astro-web
 
-This file contains instructions for GitHub Copilot when working in this repository.
+## 🔗 Project Reference
+See `.agent.md` for full context (architecture, stack, commands)
 
-## Commit Message Guidelines
+## Commit Message Rules
+**Format**: Conventional Commits — `<type(scope)>: description`
+- **Max 50 chars** on first line (including type+scope)
+- **Imperative mood**: "add", "fix", "refactor" (not "added")
+- **Scope**: Optional but recommended
+- **Examples**: 
+  - `feat(pages): add about us section`
+  - `fix(i18n): handle missing locale fallback`
+  - `config(astro): update vite settings`
 
-When creating commit messages, always follow the guidelines in [.github/instructions/copilot-commit-message.md](.github/instructions/copilot-commit-message.md)
+**Types**: feat, fix, config, refactor, perf, docs, style, test, build, ci, chore, revert
 
-**Key rules:**
+**Details**: `.github/instructions/copilot-commit-message.md`
 
-- Use Conventional Commits format: `<type>(<scope>): <description>`
-- Keep first line under 50 characters
-- Use imperative mood (add, fix, refactor, not added/fixes/refactoring)
-- No period at the end
-- Scope is optional but recommended
+## i18n Guidelines
+- Always add/update translations in all 3 files: `src/i18n/{es,ca,en}.json`
+- Use `getCurrentLocale(Astro)` in components
+- Use `getI18n(locale)` to access strings
+- Locale detection: automatic from URL pathname
 
-**Common types:** feat, fix, refactor, perf, docs, style, test, build, ci, chore, revert
-
-Example: `feat(astro): add dark mode support`
+## When in doubt
+1. Check `.agent.md` (quick reference)
+2. Check `ARCHITECTURE.md` (structure details)
+3. Check existing code (components/pages patterns)

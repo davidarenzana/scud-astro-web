@@ -1,14 +1,27 @@
-# Astro Starter Kit: Basics
+# Scud Security Website
 
-```sh
-pnpm create astro@latest -- --template basics
+**Cybersecurity platform redesign** — Scud Sensor, Scud Smart Platform, Scud Monitor
+
+- 🌐 **Multi-language**: Spanish (default), Catalan, English
+- 🎨 **Stack**: Astro 6, Tailwind CSS, TypeScript
+- 📱 **Responsive**: Mobile-first design
+- ⚡ **SEO-optimized**: hreflang, canonical, structured data
+
+## Get Started
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start dev server (localhost:4321)
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview build
+pnpm preview
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
@@ -41,6 +54,17 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Development
+- **Commits**: Follow Conventional Commits — see `.copilot-instructions`
+- **i18n**: Add strings to all 3 translation files
+- **New pages**: Create in pages/, pages/ca/, pages/en/
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## References
+- **Full context**: `.agent.md`
+- **Architecture**: `ARCHITECTURE.md`
+- **Commit rules**: `.github/instructions/copilot-commit-message.md`
+
+---
+**Company**: Scud Security  
+**Website**: https://scudsecurity.com  
+**Location**: Barcelona, Spain
