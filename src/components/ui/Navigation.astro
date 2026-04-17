@@ -1,0 +1,52 @@
+---
+import type { Locale } from "../../utils/i18n";
+import { getI18n } from "../../utils/i18n";
+
+export interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const i18n = getI18n(locale);
+
+const navItems = [
+  { key: "home", label: i18n.nav.home, href: i18n.routes.home },
+  { key: "about", label: i18n.nav.about, href: i18n.routes.about },
+  { key: "contact", label: i18n.nav.contact, href: i18n.routes.contact },
+];
+---
+
+<nav>
+  <ul>
+    {
+      navItems.map((item) => (
+        <li>
+          <a href={item.href}>{item.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  nav {
+    /* Estilos aquí */
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    /* Estilos aquí */
+  }
+
+  a {
+    text-decoration: none;
+    /* Estilos aquí */
+  }
+</style>
