@@ -6,7 +6,7 @@ const currentLocale = getCurrentLocale(Astro);
 ---
 
 <header
-  class="min-h-[70px] max-w-[1040px] mx-auto w-full bg-background-glass rounded-[40px] flex items-center justify-between px-6 py-4"
+  class="sticky top-[32px] min-h-[70px] max-w-[1040px] mx-auto w-full bg-background-glass rounded-[40px] flex items-center justify-between px-6 py-4 z-50"
 >
   <img src="/scud-logo.svg" alt="Scud Security" class="max-w-[130px] h-auto" />
   <Navigation locale={currentLocale} />

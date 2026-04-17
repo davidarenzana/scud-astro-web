@@ -46,9 +46,9 @@ const langMap: Record<Locale, string> = {
     }
     <link rel="canonical" href={Astro.url.pathname} />
   </head>
-  <body class="bg-background text-white">
+  <body class="min-h-screen bg-background text-white flex flex-col">
     <Header />
-    <main class="max-w-[1440px] mx-auto px-4 w-full">
+    <main class="max-w-(--container-width) mx-auto px-4 w-full flex-1 pt-16">
       <slot />
     </main>
     <Footer />

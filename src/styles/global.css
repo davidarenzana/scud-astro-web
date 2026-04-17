@@ -6,6 +6,8 @@
   --color-cyan: #8cf1ff;
   --color-background: #0e0a18;
   --color-background-glass: #2c2936f2;
+
+  --container-width: 1440px;
 }
 
 @theme inline {
