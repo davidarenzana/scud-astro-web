@@ -2,7 +2,9 @@
 
 ## 🔗 Project Reference
 
-See `.agent.md` for full context (architecture, stack, commands)
+See `AGENTS.md` for full context (architecture, stack, commands)
+See `DEVELOPMENT.md` for setup and workflows
+See `NAMING_CONVENTIONS.md` for code standards
 
 ## Commit Message Rules
 
@@ -27,8 +29,21 @@ See `.agent.md` for full context (architecture, stack, commands)
 - Use `getI18n(locale)` to access strings
 - Locale detection: automatic from URL pathname
 
-## When in doubt
+## Naming Conventions
 
-1. Check `.agent.md` (quick reference)
-2. Check `ARCHITECTURE.md` (structure details)
-3. Check existing code (components/pages patterns)
+See `NAMING_CONVENTIONS.md` for full standards:
+
+- **Components**: `PascalCase.astro` (e.g., `Navigation.astro`, `ButtonGradient.astro`)
+- **Functions/Variables**: `camelCase` (e.g., `getCurrentLocale()`, `translationKey`)
+- **Constants**: `UPPER_SNAKE_CASE` (e.g., `DEFAULT_LOCALE`)
+- **Types**: `PascalCase` (e.g., `Locale`, `Props`)
+- **Translation keys**: `section.key` (e.g., `nav.home`, `cta.primary`)
+- **Files**: `kebab-case` for directories (e.g., `src/components/ui/`, `src/layouts/`)
+
+## Adding New Features
+
+For detailed workflows, see `DEVELOPMENT.md`:
+
+- **New Page**: Use `scud-astro-add-page` skill or follow 3-step manual process
+- **New Component**: Inherit locale via props, use `getCurrentLocale()` + `getI18n()`
+- **New Translation**: Add to all 3 `src/i18n/{es,ca,en}.json` files simultaneously
