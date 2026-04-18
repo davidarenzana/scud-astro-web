@@ -18,36 +18,13 @@ const navItems = [
 ---
 
 <nav>
-  <ul>
+  <ul class="flex list-none gap-4 p-0 m-0 font-normal">
     {
       navItems.map((item) => (
-        <li>
+        <li class="hover:text-fucsia transition-colors">
           <a href={item.href}>{item.label}</a>
         </li>
       ))
     }
   </ul>
 </nav>
-
-<style>
-  nav {
-    /* Estilos aquí */
-  }
-
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    /* Estilos aquí */
-  }
-
-  a {
-    text-decoration: none;
-    /* Estilos aquí */
-  }
-</style>
