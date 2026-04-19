@@ -34,8 +34,22 @@
 **Example**: `feat(pages): add about us page`  
 See `.github/instructions/copilot-commit-message.md` for full spec
 
+## 📚 Documentation Structure
+
+For detailed context, see specialized files in `.copilot-context/`:
+
+- **[.copilot-context/architecture.md](./.copilot-context/architecture.md)** — Why decisions were made
+- **[.copilot-context/code-style.md](./.copilot-context/code-style.md)** — Naming & formatting rules
+- **[.copilot-context/i18n-patterns.md](./.copilot-context/i18n-patterns.md)** — i18n workflows
+- **[.copilot-context/commands.md](./.copilot-context/commands.md)** — All pnpm commands
+- **[.copilot-context/troubleshooting.md](./.copilot-context/troubleshooting.md)** — Common issues & fixes
+
 ## References
 
-- Architecture: `ARCHITECTURE.md`
-- Guidelines: `.copilot-instructions`
-- Commit spec: `.github/instructions/copilot-commit-message.md`
+- **Full Architecture**: [ARCHITECTURE.md](./ARCHITECTURE.md)
+- **Development Guide**: [DEVELOPMENT.md](./DEVELOPMENT.md)
+- **Code Standards**: [NAMING_CONVENTIONS.md](./NAMING_CONVENTIONS.md)
+- **Copilot Rules**: [.copilot-instructions](./.copilot-instructions)
+- **Commit Spec**: [.github/instructions/copilot-commit-message.md](./.github/instructions/copilot-commit-message.md)
+- **Dev Workflow**: [.github/instructions/development-workflow.md](./.github/instructions/development-workflow.md)
+- **Skills**: [.agents/README.md](./.agents/README.md)
