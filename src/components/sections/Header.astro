@@ -1,17 +1,27 @@
 ---
-import Navigation from "../ui/Navigation.astro";
-import ButtonGradient from "../ui/ButtonGradient.astro";
-import { getCurrentLocale } from "../../utils/i18n";
+import { Image } from 'astro:assets'
+import Navigation from '../ui/Navigation.astro'
+import ButtonGradient from '../ui/ButtonGradient.astro'
+import { getCurrentLocale } from '../../utils/i18n'
+import scudLogo from '../../assets/scud-logo.svg'
 
-const currentLocale = getCurrentLocale(Astro);
+const currentLocale = getCurrentLocale(Astro)
 ---
 
 <header
-  class="sticky top-[32px] min-h-[70px] max-w-[1040px] mx-auto w-full bg-background-glass rounded-[40px] flex items-center justify-between px-6 py-4 z-50"
+  class="sticky mx-auto w-full bg-background-glass rounded-[40px] flex items-center justify-between px-6 py-4 z-50 header"
 >
-  <img src="/scud-logo.svg" alt="Scud Security" class="max-w-[130px] h-auto" />
-  <div>
+  <Image src={scudLogo} alt="Scud Security" width={130} height={30} class="h-auto" />
+  <div class="flex items-center justify-end gap-6">
     <Navigation locale={currentLocale} />
     <ButtonGradient />
   </div>
 </header>
+
+<style>
+  .header {
+    top: 32px;
+    min-height: 70px;
+    max-width: 1040px;
+  }
+</style>
