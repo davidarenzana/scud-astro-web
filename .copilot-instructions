@@ -40,6 +40,16 @@ See `NAMING_CONVENTIONS.md` for full standards:
 - **Translation keys**: `section.key` (e.g., `nav.home`, `cta.primary`)
 - **Files**: `kebab-case` for directories (e.g., `src/components/ui/`, `src/layouts/`)
 
+## Release & Versioning
+
+**Automatic versioning + changelog on every merge to main**:
+- Push/merge to `main` → GitHub Actions runs automatically
+- `package.json` version bumped (0.0.1 → 0.0.2, etc)
+- `CHANGELOG.md` updated with release entry and commits
+- Everything auto-committed and pushed
+
+See `.copilot-context/release.md` for details.
+
 ## Adding New Features
 
 For detailed workflows, see `DEVELOPMENT.md`:
@@ -51,6 +61,7 @@ For detailed workflows, see `DEVELOPMENT.md`:
 ## Additional Context
 
 Specialized context available in `.copilot-context/` for quick reference:
+
 - `.copilot-context/architecture.md` — Why decisions were made
 - `.copilot-context/code-style.md` — Code formatting quick reference
 - `.copilot-context/i18n-patterns.md` — Common i18n workflows

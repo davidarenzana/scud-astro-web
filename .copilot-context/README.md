@@ -4,14 +4,15 @@ This directory contains domain-specific context files optimized for AI agents (G
 
 ## 📋 Files Index
 
-| File | Purpose | When to Reference |
-|------|---------|-------------------|
-| **[architecture.md](./architecture.md)** | Technical decisions & design rationale | Working on core features, understanding trade-offs, refactoring |
-| **[code-style.md](./code-style.md)** | Code conventions & formatting rules | Writing new components, functions, utilities |
-| **[i18n-patterns.md](./i18n-patterns.md)** | Multilingual workflow patterns | Adding pages, components, translations |
-| **[commands.md](./commands.md)** | Development commands & scripts | Running dev server, building, debugging |
-| **[troubleshooting.md](./troubleshooting.md)** | Common issues & solutions | Encountering build errors, type errors, i18n issues |
-| **[DEVELOPMENT.md](../DEVELOPMENT.md)** | Full development guide | Complete setup, workflows, step-by-step instructions |
+| File                                           | Purpose                                | When to Reference                                               |
+| ---------------------------------------------- | -------------------------------------- | --------------------------------------------------------------- |
+| **[architecture.md](./architecture.md)**       | Technical decisions & design rationale | Working on core features, understanding trade-offs, refactoring |
+| **[code-style.md](./code-style.md)**           | Code conventions & formatting rules    | Writing new components, functions, utilities                    |
+| **[i18n-patterns.md](./i18n-patterns.md)**     | Multilingual workflow patterns         | Adding pages, components, translations                          |
+| **[commands.md](./commands.md)**               | Development commands & scripts         | Running dev server, building, debugging                         |
+| **[troubleshooting.md](./troubleshooting.md)** | Common issues & solutions              | Encountering build errors, type errors, i18n issues             |
+| **[release.md](./release.md)**                 | Release & versioning workflow          | Creating releases, versioning, changelog management             |
+| **[DEVELOPMENT.md](../DEVELOPMENT.md)**        | Full development guide                 | Complete setup, workflows, step-by-step instructions            |
 
 ## 🎯 How Copilot Uses This Context
 
@@ -34,6 +35,9 @@ This directory contains domain-specific context files optimized for AI agents (G
 **Q: Build is failing, what do I do?**  
 → See [troubleshooting.md](./troubleshooting.md) + [../DEVELOPMENT.md#troubleshooting](../DEVELOPMENT.md#troubleshooting)
 
+**Q: How does versioning and changelog work?**  
+→ See [release.md](./release.md) + [../CHANGELOG.md](../CHANGELOG.md)
+
 **Q: Why is the project structured this way?**  
 → See [architecture.md](./architecture.md) + [../ARCHITECTURE.md](../ARCHITECTURE.md)
 
@@ -45,6 +49,7 @@ This directory contains domain-specific context files optimized for AI agents (G
 - Technical architecture: [ARCHITECTURE.md](../ARCHITECTURE.md)
 - Code standards: [NAMING_CONVENTIONS.md](../NAMING_CONVENTIONS.md)
 - Automation skills: [.agents/README.md](../.agents/README.md)
+- Version history: [CHANGELOG.md](../CHANGELOG.md)
 
 ---
 

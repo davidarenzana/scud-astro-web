@@ -15,10 +15,12 @@
 
 | What         | Where             | Command                        |
 | ------------ | ----------------- | ------------------------------ |
-| Dev server   | localhost:4321    | `pnpm dev`                     |
-| Build        | dist/             | `pnpm build`                   |
-| Translations | src/i18n/\*.json  | 3 JSON files (es, ca, en)      |
-| i18n logic   | src/utils/i18n.ts | getI18n(), getLocaleFromPath() |
+| Dev server     | localhost:4321    | `pnpm dev`                     |
+| Build          | dist/             | `pnpm build`                   |
+| Translations   | src/i18n/\*.json  | 3 JSON files (es, ca, en)      |
+| i18n logic     | src/utils/i18n.ts | getI18n(), getLocaleFromPath() |
+| Release history | CHANGELOG.md      | Auto-updated with each version |
+| Auto-versioning | GitHub Actions   | Merge PR → version bumps       |
 
 ## Add New Page
 
@@ -42,6 +44,7 @@ For detailed context, see specialized files in `.copilot-context/`:
 - **[.copilot-context/code-style.md](./.copilot-context/code-style.md)** — Naming & formatting rules
 - **[.copilot-context/i18n-patterns.md](./.copilot-context/i18n-patterns.md)** — i18n workflows
 - **[.copilot-context/commands.md](./.copilot-context/commands.md)** — All pnpm commands
+- **[.copilot-context/release.md](./.copilot-context/release.md)** — Versioning & changelog
 - **[.copilot-context/troubleshooting.md](./.copilot-context/troubleshooting.md)** — Common issues & fixes
 
 ## References
