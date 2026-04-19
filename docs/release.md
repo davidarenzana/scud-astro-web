@@ -44,13 +44,14 @@ Does the same as automatic but local-only (doesn't push).
 
 Currently using **patch-only versioning** (simplest approach):
 
-| Change | Version | Example |
-|--------|---------|---------|
+| Change            | Version  | Example       |
+| ----------------- | -------- | ------------- |
 | Any merge to main | Patch +1 | 0.0.1 → 0.0.2 |
 
 **Future**: Can switch to semantic versioning (major.minor.patch based on commit type):
+
 - `feat:` → minor version
-- `fix:` → patch version  
+- `fix:` → patch version
 - `BREAKING CHANGE:` → major version
 
 (See `scripts/bump-version.js` for implementation details.)
@@ -65,16 +66,19 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [0.0.2] - 2026-04-19
 
 ### Changed
+
 - feat(component): add new widget (abc1234)
 - fix(i18n): handle missing locale (def5678)
 
 ## [0.0.1] - 2026-04-15
 
 ### Added
+
 - Initial project setup
 ```
 
 **Structure**:
+
 - `[VERSION]` — Exact version number
 - `YYYY-MM-DD` — Release date (auto-generated)
 - `Changed/Added/Fixed/...` — Commit categories
@@ -84,12 +88,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## 🔍 Files Involved
 
-| File | Purpose |
-|------|---------|
-| `package.json` | Version number (bumped automatically) |
-| `CHANGELOG.md` | Release history (updated automatically) |
-| `scripts/bump-version.js` | Versioning script (runs locally or in CI) |
-| `.github/workflows/bump-version.yml` | GitHub Actions automation |
+| File                                 | Purpose                                   |
+| ------------------------------------ | ----------------------------------------- |
+| `package.json`                       | Version number (bumped automatically)     |
+| `CHANGELOG.md`                       | Release history (updated automatically)   |
+| `scripts/bump-version.js`            | Versioning script (runs locally or in CI) |
+| `.github/workflows/bump-version.yml` | GitHub Actions automation                 |
 
 ---
 
@@ -98,18 +102,21 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### After Merge to Main
 
 1. Check workflow ran:
+
    ```bash
    # GitHub Actions tab → bump-version workflow
    # Should show: ✓ success
    ```
 
 2. Verify version bumped:
+
    ```bash
    cat package.json | grep version
    # Output: "version": "0.0.2"
    ```
 
 3. Verify changelog updated:
+
    ```bash
    head -20 CHANGELOG.md
    # Should show new version entry with today's date
@@ -144,7 +151,7 @@ git push origin feat/new-page
 # Merge PR #1 at 10:00
 # → GitHub Actions: v0.0.1 → v0.0.2
 
-# Merge PR #2 at 10:30  
+# Merge PR #2 at 10:30
 # → GitHub Actions: v0.0.2 → v0.0.3
 
 # Merge PR #3 at 11:00
@@ -171,6 +178,7 @@ pnpm bump-version
 Located: `scripts/bump-version.js`
 
 Key logic:
+
 - Reads `package.json` version
 - Splits into [major, minor, patch]
 - Increments: `patch += 1`
@@ -179,6 +187,7 @@ Key logic:
 - Commits and pushes (if on CI)
 
 To modify versioning strategy (e.g., semantic versioning):
+
 - Edit logic at line: `const newVersion = ...`
 
 ### GitHub Actions Workflow
@@ -195,28 +204,30 @@ To run on different branch: Change `branches: [main]` to `branches: [develop]` e
 
 ## 🔗 Related Documentation
 
-- **Commands**: See `.copilot-context/commands.md` → Release & Versioning section
-- **Architecture**: See `ARCHITECTURE.md` → Deployment & Release strategy
-- **Git Workflow**: See `.github/instructions/development-workflow.md`
-- **Version History**: See `CHANGELOG.md`
+- **Commands**: See `commands.md` → Release & Versioning section
+- **Git Workflow**: See `development-workflow.md`
+- **Version History**: See `../../CHANGELOG.md`
 
 ---
 
 ## 💡 Best Practices
 
 1. **Use Conventional Commits** — Ensures readable CHANGELOG
+
    ```bash
    ✅ git commit -m "feat(component): add new widget"
    ❌ git commit -m "update stuff"
    ```
 
 2. **Small, frequent merges** — Easier to track what changed
+
    ```bash
    ✅ Multiple PRs: v0.0.1 → v0.0.2 → v0.0.3
    ❌ Single huge PR: v0.0.1 → v0.0.5
    ```
 
 3. **Keep CHANGELOG.md in git** — It's your release history
+
    ```bash
    # Never delete or force-push CHANGELOG.md
    git push --force # ❌ BAD

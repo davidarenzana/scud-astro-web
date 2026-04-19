@@ -9,11 +9,13 @@ This directory contains automation skills that extend Copilot capabilities for s
 **Purpose**: Automate creation of new multilingual pages (Spanish, Catalan, English)
 
 **Invoke with**:
+
 ```
 "Add a new page called 'Contact' in Spanish, Catalan, and English"
 ```
 
 **What it does**:
+
 - ✅ Creates 3 `.astro` files (es, ca, en) with Layout template
 - ✅ Generates translation keys in all 3 JSON files
 - ✅ Validates file structure and key synchronization
@@ -27,12 +29,12 @@ This directory contains automation skills that extend Copilot capabilities for s
 
 ## 🎯 When to Use Skills
 
-| Task | Skill | Time Saved |
-|------|-------|-----------|
-| Add new page (multiidioma) | scud-astro-add-page | 5 min → 30 sec |
-| Add page section | Manual (not yet automated) | - |
-| Update styling | Manual (not yet automated) | - |
-| Add component | Manual (not yet automated) | - |
+| Task                       | Skill                      | Time Saved     |
+| -------------------------- | -------------------------- | -------------- |
+| Add new page (multiidioma) | scud-astro-add-page        | 5 min → 30 sec |
+| Add page section           | Manual (not yet automated) | -              |
+| Update styling             | Manual (not yet automated) | -              |
+| Add component              | Manual (not yet automated) | -              |
 
 ---
 
@@ -45,8 +47,9 @@ If you find a repetitive task that could be automated:
 3. Suggest skill name
 
 Example:
+
 ```
-"Create a skill for refactoring component names 
+"Create a skill for refactoring component names
 across the project (batch rename with i18n updates)"
 ```
 
@@ -55,6 +58,7 @@ across the project (batch rename with i18n updates)"
 ## 📚 Skill Documentation
 
 Each skill has a `SKILL.md` file with:
+
 - **Purpose**: What the skill does
 - **When to use**: When to invoke it
 - **Workflow**: Step-by-step execution
@@ -66,9 +70,9 @@ Each skill has a `SKILL.md` file with:
 
 ## 🔗 Related Documentation
 
-- [AGENTS.md](../../AGENTS.md) — Quick reference for AI agents
-- [DEVELOPMENT.md](../../DEVELOPMENT.md) — Full development guide
-- [.copilot-context/](../../.copilot-context/) — Specialized context
+- [AGENTS.md](../AGENTS.md) — Quick reference for AI agents
+- [README.md](../README.md) — Setup & project structure
+- [docs/](../docs/) — Commands, troubleshooting, workflow, commit messages, release
 
 ---
 

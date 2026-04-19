@@ -51,6 +51,7 @@ pnpm astro check
 **Merge PR to main → Automatic version bump + changelog generation**
 
 How it works:
+
 1. Merge a PR to `main` branch
 2. GitHub Actions (`bump-version` workflow) triggers automatically
 3. Version incremented in `package.json` (0.0.1 → 0.0.2)
@@ -274,7 +275,7 @@ pnpm astro check
 ```bash
 # Create commit following conventions
 git commit -m "feat(pages): add contact page"
-# (See .github/instructions/copilot-commit-message.md)
+# (See docs/commit-messages.md)
 ```
 
 ### Push to Remote

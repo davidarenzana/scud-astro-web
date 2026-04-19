@@ -285,10 +285,10 @@ User:
 
 ## References
 
-- **DEVELOPMENT.md** — Full development guide (includes manual page creation steps)
-- **ARCHITECTURE.md** — i18n architecture details
-- **NAMING_CONVENTIONS.md** — Naming rules for pages, routes, translation keys
-- **astro-config.mjs** — i18n routing configuration
+- **README.md** — Setup & project structure
+- **.github/instructions/i18n-patterns.instructions.md** — i18n workflows & patterns
+- **.github/instructions/code-style.instructions.md** — Naming rules for pages, routes, translation keys
+- **astro.config.mjs** — i18n routing configuration
 
 ## Future Enhancements
 
