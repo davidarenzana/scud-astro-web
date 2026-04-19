@@ -7,7 +7,7 @@ const i18n = getI18n(locale)
 
 <a
   href="#"
-  class="inline-block px-5 py-2.5 border-2 border-transparent rounded-24 transition-all duration-300 hover:bg-fucsia button-gradient"
+  class="inline-block px-5 py-2.5 border-2 border-transparent transition-all duration-300 button-gradient button-gradient-hover"
 >
   {i18n.cta.demo}
 </a>
@@ -18,5 +18,9 @@ const i18n = getI18n(locale)
     background: var(--gradient-border);
     background-origin: padding-box, border-box;
     background-clip: padding-box, border-box;
+  }
+
+  .button-gradient-hover:hover {
+    background: var(--color-fucsia);
   }
 </style>

@@ -1,20 +1,20 @@
 ---
-import type { Locale } from "../../utils/i18n";
-import { getI18n } from "../../utils/i18n";
+import type { Locale } from '../../utils/i18n'
+import { getI18n } from '../../utils/i18n'
 
 export interface Props {
-  locale?: Locale;
+  locale?: Locale
 }
 
-const { locale = "es" } = Astro.props;
-const i18n = getI18n(locale);
+const { locale = 'es' } = Astro.props
+const i18n = getI18n(locale)
 
 const navItems = [
-  { key: "services", label: i18n.nav.services, href: i18n.routes.services },
-  { key: "how", label: i18n.nav.how, href: i18n.routes.how },
-  { key: "why", label: i18n.nav.why, href: i18n.routes.why },
-  { key: "hacked", label: i18n.nav.hacked, href: i18n.routes.hacked },
-];
+  { key: 'services', label: i18n.nav.services, href: i18n.routes.services },
+  { key: 'how', label: i18n.nav.how, href: i18n.routes.how },
+  { key: 'why', label: i18n.nav.why, href: i18n.routes.why },
+  { key: 'hacked', label: i18n.nav.hacked, href: i18n.routes.hacked },
+]
 ---
 
 <nav>
