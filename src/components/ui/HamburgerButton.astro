@@ -1,0 +1,82 @@
+---
+
+---
+
+<button
+  id="hamburger"
+  class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 cursor-pointer group"
+  aria-label="Toggle navigation menu"
+  aria-expanded="false"
+  aria-controls="nav-menu"
+>
+  <span
+    class="hamburger-line line1 w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"
+  ></span>
+  <span
+    class="hamburger-line line2 w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"
+  ></span>
+  <span
+    class="hamburger-line line3 w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"
+  ></span>
+</button>
+
+<script>
+  import {
+    getMenuElements,
+    isMenuOpen,
+    toggleMenuVisibility,
+    updateAriaExpanded,
+    animateHamburgerLines,
+  } from '../../utils/menuManager'
+
+  const elements = getMenuElements()
+  if (!elements) throw new Error('Menu elements not found')
+
+  const { menu, hamburger, lines } = elements
+  let isOpen = false
+
+  function closeMenu() {
+    isOpen = false
+    toggleMenuVisibility(menu, false)
+    updateAriaExpanded(hamburger, false)
+    animateHamburgerLines(lines, false)
+  }
+
+  function openMenu() {
+    isOpen = true
+    toggleMenuVisibility(menu, true)
+    updateAriaExpanded(hamburger, true)
+    animateHamburgerLines(lines, true)
+  }
+
+  function toggleMenu() {
+    if (isOpen) {
+      closeMenu()
+    } else {
+      openMenu()
+    }
+  }
+
+  // Toggle menu on hamburger click
+  hamburger.addEventListener('click', toggleMenu)
+
+  // Close menu when a link is clicked
+  const navLinks = menu.querySelectorAll('a')
+  navLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu)
+  })
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
+    if (isOpen && !hamburger.contains(target) && !menu.contains(target)) {
+      closeMenu()
+    }
+  })
+</script>
+
+<style>
+  .hamburger-line {
+    transition: all 0.3s ease;
+  }
+</style>

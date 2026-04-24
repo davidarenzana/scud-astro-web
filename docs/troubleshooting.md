@@ -443,7 +443,7 @@ pnpm build
 
 ## 📚 More Help
 
-- **DEVELOPMENT.md**: Full troubleshooting section
+- **README.md**: Setup & project structure
 - **Astro Docs**: https://docs.astro.build/
 - **Tailwind Docs**: https://tailwindcss.com/
 - **GitHub Issues**: Search project issues for common problems

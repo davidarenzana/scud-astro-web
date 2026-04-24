@@ -1,27 +1,25 @@
 ---
-import { Font } from "astro:assets";
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { getCurrentLocale, type Locale } from "../utils/i18n";
-import "../styles/global.css";
+import { Font } from 'astro:assets'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getCurrentLocale, type Locale } from '../utils/i18n'
+import '../styles/global.css'
 
-import Header from "../components/sections/Header.astro";
-import Footer from "../components/sections/Footer.astro";
+import Header from '../components/sections/Header.astro'
+import Footer from '../components/sections/Footer.astro'
 
-const currentLocale = getCurrentLocale(Astro);
-const locales: Locale[] = ["es", "ca", "en"];
+const currentLocale = getCurrentLocale(Astro)
+const locales: Locale[] = ['es', 'ca', 'en']
 
 // Obtener la ruta sin prefijo de idioma para generar hreflang
-const pathname = Astro.url.pathname;
-const pathWithoutLocale = pathname
-  .replace(/^\/(ca|en)\//, "/")
-  .replace(/^\/$/, "");
+const pathname = Astro.url.pathname
+const pathWithoutLocale = pathname.replace(/^\/(ca|en)\//, '/').replace(/^\/$/, '')
 
 // Mapeo de locales a códigos de idioma HTML
 const langMap: Record<Locale, string> = {
-  es: "es-ES",
-  ca: "ca-ES",
-  en: "en-US",
-};
+  es: 'es-ES',
+  ca: 'ca-ES',
+  en: 'en-US',
+}
 ---
 
 <!doctype html>

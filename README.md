@@ -2,82 +2,82 @@
 
 **Cybersecurity platform redesign** — Scud Sensor, Scud Smart Platform, Scud Monitor
 
-- 🌐 **Multi-language**: Spanish (default), Catalan, English
-- 🎨 **Stack**: Astro 6, Tailwind CSS, TypeScript
-- 📱 **Responsive**: Mobile-first design
-- ⚡ **SEO-optimized**: hreflang, canonical, structured data
+- **Multi-language**: Spanish (default), Catalan, English
+- **Stack**: Astro 6, Tailwind CSS, TypeScript
+- **Responsive**: Mobile-first design
+- **SEO-optimized**: hreflang, canonical, structured data
+
+## Prerequisites
+
+- **Node**: >=22.12.0
+- **Package Manager**: pnpm
+- **VS Code Extensions**: See `.vscode/extensions.json`
 
 ## Get Started
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Start dev server (localhost:4321)
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Preview build
-pnpm preview
+pnpm install          # Install dependencies
+pnpm dev              # Start dev server → localhost:4321
+pnpm build            # Build for production → dist/
+pnpm preview          # Preview production build
 ```
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+## Project Structure
+
+```
+scud-astro-web/
+├── astro.config.mjs          # Astro config (i18n, Tailwind, aliases)
+├── tailwind.config.ts        # Tailwind configuration
+├── tsconfig.json             # TypeScript config
+├── src/
+│   ├── pages/                # Routes (Astro native i18n)
+│   │   ├── index.astro       # / (Spanish, default)
+│   │   ├── ca/index.astro    # /ca/ (Catalan)
+│   │   └── en/index.astro    # /en/ (English)
+│   ├── layouts/
+│   │   └── Layout.astro      # Root layout (lang, hreflang, canonical)
+│   ├── components/
+│   │   ├── sections/         # Page sections (Header, Footer)
+│   │   ├── ui/               # Reusable UI (Navigation, ButtonGradient)
+│   │   └── LanguageSwitcher.astro
+│   ├── i18n/                 # Translations (es.json, ca.json, en.json)
+│   ├── utils/
+│   │   └── i18n.ts           # i18n helpers
+│   ├── assets/               # Images, fonts
+│   └── styles/
+│       └── global.css        # Global Tailwind directives
+├── public/                   # Static files (robots.txt, favicon)
+└── dist/                     # Build output (generated)
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 📚 Documentation
-
-- **[AGENTS.md](./AGENTS.md)** — Quick reference for AI agents
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** — Technical architecture & design decisions
-- **[DEVELOPMENT.md](./DEVELOPMENT.md)** — Setup, workflows, and troubleshooting guide
-- **[NAMING_CONVENTIONS.md](./NAMING_CONVENTIONS.md)** — Code standards & conventions
-- **[.copilot-context/](./.copilot-context/)** — Specialized context for Copilot (architecture, code-style, i18n patterns, commands, troubleshooting)
-- **[.agents/](./.agents/)** — Automation skills & workflows
-- **[.github/instructions/](./.github/instructions/)** — Contribution guidelines & commit rules
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+| Command            | Action                                           |
+| :----------------- | :----------------------------------------------- |
+| `pnpm install`     | Installs dependencies                            |
+| `pnpm dev`         | Starts local dev server at `localhost:4321`      |
+| `pnpm build`       | Build your production site to `./dist/`          |
+| `pnpm preview`     | Preview your build locally, before deploying     |
+| `pnpm run format`  | Format code with Prettier                        |
+| `pnpm astro check` | Validate TypeScript                              |
+| `pnpm astro ...`   | Run CLI commands like `astro add`, `astro check` |
 
 ## Development
 
-- **Commits**: Follow Conventional Commits — see `.copilot-instructions`
-- **i18n**: Add strings to all 3 translation files
-- **New pages**: Create in pages/, pages/ca/, pages/en/
+- **Commits**: Follow Conventional Commits — see [docs/commit-messages.md](docs/commit-messages.md)
+- **i18n**: Add strings to all 3 translation files (`src/i18n/{es,ca,en}.json`)
+- **New pages**: Create in `pages/`, `pages/ca/`, `pages/en/`
 
-## References
+## Documentation
 
-- **Full context**: `.agent.md`
-- **Architecture**: `ARCHITECTURE.md`
-- **Commit rules**: `.github/instructions/copilot-commit-message.md`
-
----
-
-**Company**: Scud Security  
-**Website**: https://scudsecurity.com  
-**Location**: Barcelona, Spain
+| Topic                | File                                                                                                     |
+| -------------------- | -------------------------------------------------------------------------------------------------------- |
+| Code style & naming  | [.github/instructions/code-style.instructions.md](.github/instructions/code-style.instructions.md)       |
+| i18n patterns        | [.github/instructions/i18n-patterns.instructions.md](.github/instructions/i18n-patterns.instructions.md) |
+| All commands         | [docs/commands.md](docs/commands.md)                                                                     |
+| Troubleshooting      | [docs/troubleshooting.md](docs/troubleshooting.md)                                                       |
+| Git workflow         | [docs/development-workflow.md](docs/development-workflow.md)                                             |
+| Commit messages      | [docs/commit-messages.md](docs/commit-messages.md)                                                       |
+| Release & versioning | [docs/release.md](docs/release.md)                                                                       |
+| AI agent context     | [AGENTS.md](AGENTS.md)                                                                                   |
+| Skills               | [.agents/README.md](.agents/README.md)                                                                   |

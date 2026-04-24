@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-primary: #ec6565;
@@ -8,6 +8,10 @@
   --color-background-glass: #2c2936f2;
 
   --container-width: 1440px;
+
+  --gradient-border:
+    linear-gradient(#2a2735 0 0) padding-box,
+    linear-gradient(to right, #e175ea 12.77%, #8cf1ff 114.5%) border-box;
 }
 
 @theme inline {
