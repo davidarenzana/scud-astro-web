@@ -16,12 +16,12 @@ const { navItems } = Astro.props
   <!-- Navigation Menu -->
   <ul
     id="nav-menu"
-    class="hidden lg:flex list-none gap-4 p-0 m-0 font-normal flex-col lg:flex-row lg:items-center fixed lg:static left-0 right-0 top-[110px] lg:top-0 bg-[color:var(--color-background)] lg:bg-transparent z-40 lg:z-auto shadow-lg lg:shadow-none w-full lg:w-auto max-h-[calc(100vh-110px)] lg:max-h-none overflow-y-auto lg:overflow-y-visible"
+    class="hidden lg:flex list-none gap-0 lg:gap-4 p-0 m-0 font-normal flex-col lg:flex-row lg:items-center fixed lg:static left-0 right-0 top-[86px] md:top-[112px] lg:top-0 bg-background-glass lg:bg-transparent z-40 lg:z-auto w-full lg:w-auto max-h-[calc(100vh-102px)] lg:max-h-none overflow-y-auto lg:overflow-y-visible border-t-2 lg:border-t-0 border-gradient-border"
   >
     {
       navItems.map((item) => (
-        <li class="px-6 lg:px-0 py-3 lg:py-0 hover:text-fucsia transition-colors border-b lg:border-b-0 border-gray-800">
-          <a href={item.href} class="block text-base">
+        <li class="px-6 lg:px-0 py-4 lg:py-0 hover:text-fucsia transition-colors duration-200 border-b lg:border-b-0 border-gray-700/50 hover:border-fucsia/30 last:border-b-0">
+          <a href={item.href} class="block text-base font-medium">
             {item.label}
           </a>
         </li>
@@ -35,39 +35,93 @@ const { navItems } = Astro.props
   const hamburger = document.getElementById('hamburger')
 
   if (hamburger && navMenu) {
+    function closeMenu() {
+      navMenu!.classList.add('hidden')
+      navMenu!.classList.remove('flex')
+      hamburger!.setAttribute('aria-expanded', 'false')
+      const hamburgerLines = document.querySelectorAll('.hamburger-line')
+      const line1 = hamburgerLines[0] as HTMLElement
+      const line2 = hamburgerLines[1] as HTMLElement
+      const line3 = hamburgerLines[2] as HTMLElement
+      line1.style.transform = 'rotate(0) translateY(0)'
+      line2.style.opacity = '1'
+      line3.style.transform = 'rotate(0) translateY(0)'
+    }
+
+    function openMenu() {
+      navMenu!.classList.remove('hidden')
+      navMenu!.classList.add('flex')
+      hamburger!.setAttribute('aria-expanded', 'true')
+    }
+
     // Close menu when a link is clicked
-    const navLinks = navMenu.querySelectorAll('a')
+    const navLinks = navMenu!.querySelectorAll('a')
     navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        navMenu.classList.add('hidden')
-        navMenu.classList.remove('flex')
-        hamburger.setAttribute('aria-expanded', 'false')
-        const hamburgerLines = document.querySelectorAll('.hamburger-line')
-        const line1 = hamburgerLines[0] as HTMLElement
-        const line2 = hamburgerLines[1] as HTMLElement
-        const line3 = hamburgerLines[2] as HTMLElement
-        line1.style.transform = 'rotate(0) translateY(0)'
-        line2.style.opacity = '1'
-        line3.style.transform = 'rotate(0) translateY(0)'
-      })
+      link.addEventListener('click', closeMenu)
+    })
+
+    // Toggle menu on hamburger click (from HamburgerButton)
+    hamburger!.addEventListener('click', () => {
+      if (navMenu!.classList.contains('hidden')) {
+        openMenu()
+      } else {
+        closeMenu()
+      }
     })
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement
-      const isOpen = navMenu.classList.contains('flex')
-      if (isOpen && !hamburger.contains(target) && !navMenu.contains(target)) {
-        navMenu.classList.add('hidden')
-        navMenu.classList.remove('flex')
-        hamburger.setAttribute('aria-expanded', 'false')
-        const hamburgerLines = document.querySelectorAll('.hamburger-line')
-        const line1 = hamburgerLines[0] as HTMLElement
-        const line2 = hamburgerLines[1] as HTMLElement
-        const line3 = hamburgerLines[2] as HTMLElement
-        line1.style.transform = 'rotate(0) translateY(0)'
-        line2.style.opacity = '1'
-        line3.style.transform = 'rotate(0) translateY(0)'
+      const isOpen = !navMenu!.classList.contains('hidden')
+      if (isOpen && !hamburger!.contains(target) && !navMenu!.contains(target)) {
+        closeMenu()
       }
     })
   }
 </script>
+
+<style>
+  #nav-menu {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-background-glass) 95%, var(--color-fucsia) 5%),
+      var(--color-background-glass)
+    );
+    border-image: linear-gradient(to right, var(--color-fucsia) 0%, var(--color-cyan) 100%) 1;
+  }
+
+  /* Solo animar en mobile */
+  @media (max-width: 875px) {
+    #nav-menu.flex {
+      animation: slideUp 0.3s ease-out forwards;
+    }
+
+    #nav-menu.hidden {
+      animation: slideDown 0.3s ease-in forwards;
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-20px);
+      visibility: hidden;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+      visibility: hidden;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -33,15 +33,15 @@
 
       // Toggle menu visibility
       if (isOpen) {
-        navMenu.classList.remove('hidden')
-        navMenu.classList.add('flex')
+        navMenu!.classList.remove('hidden')
+        navMenu!.classList.add('flex')
       } else {
-        navMenu.classList.add('hidden')
-        navMenu.classList.remove('flex')
+        navMenu!.classList.add('hidden')
+        navMenu!.classList.remove('flex')
       }
 
       // Update aria attributes
-      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+      hamburger!.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
 
       // Animate hamburger lines
       animateHamburger()
@@ -73,9 +73,9 @@
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         isOpen = false
-        navMenu.classList.add('hidden')
-        navMenu.classList.remove('flex')
-        hamburger.setAttribute('aria-expanded', 'false')
+        navMenu!.classList.add('hidden')
+        navMenu!.classList.remove('flex')
+        hamburger!.setAttribute('aria-expanded', 'false')
         animateHamburger()
       })
     })
@@ -83,11 +83,11 @@
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement
-      if (isOpen && !hamburger.contains(target) && !navMenu.contains(target)) {
+      if (isOpen && !hamburger.contains(target) && !navMenu!.contains(target)) {
         isOpen = false
-        navMenu.classList.add('hidden')
-        navMenu.classList.remove('flex')
-        hamburger.setAttribute('aria-expanded', 'false')
+        navMenu!.classList.add('hidden')
+        navMenu!.classList.remove('flex')
+        hamburger!.setAttribute('aria-expanded', 'false')
         animateHamburger()
       }
     })
