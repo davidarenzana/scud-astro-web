@@ -1,0 +1,73 @@
+---
+export interface NavItem {
+  key: string
+  label: string
+  href: string
+}
+
+export interface Props {
+  navItems: NavItem[]
+}
+
+const { navItems } = Astro.props
+---
+
+<nav class="w-full">
+  <!-- Navigation Menu -->
+  <ul
+    id="nav-menu"
+    class="hidden lg:flex list-none gap-4 p-0 m-0 font-normal flex-col lg:flex-row lg:items-center fixed lg:static left-0 right-0 top-[110px] lg:top-0 bg-[color:var(--color-background)] lg:bg-transparent z-40 lg:z-auto shadow-lg lg:shadow-none w-full lg:w-auto max-h-[calc(100vh-110px)] lg:max-h-none overflow-y-auto lg:overflow-y-visible"
+  >
+    {
+      navItems.map((item) => (
+        <li class="px-6 lg:px-0 py-3 lg:py-0 hover:text-fucsia transition-colors border-b lg:border-b-0 border-gray-800">
+          <a href={item.href} class="block text-base">
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const navMenu = document.getElementById('nav-menu')
+  const hamburger = document.getElementById('hamburger')
+
+  if (hamburger && navMenu) {
+    // Close menu when a link is clicked
+    const navLinks = navMenu.querySelectorAll('a')
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.add('hidden')
+        navMenu.classList.remove('flex')
+        hamburger.setAttribute('aria-expanded', 'false')
+        const hamburgerLines = document.querySelectorAll('.hamburger-line')
+        const line1 = hamburgerLines[0] as HTMLElement
+        const line2 = hamburgerLines[1] as HTMLElement
+        const line3 = hamburgerLines[2] as HTMLElement
+        line1.style.transform = 'rotate(0) translateY(0)'
+        line2.style.opacity = '1'
+        line3.style.transform = 'rotate(0) translateY(0)'
+      })
+    })
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement
+      const isOpen = navMenu.classList.contains('flex')
+      if (isOpen && !hamburger.contains(target) && !navMenu.contains(target)) {
+        navMenu.classList.add('hidden')
+        navMenu.classList.remove('flex')
+        hamburger.setAttribute('aria-expanded', 'false')
+        const hamburgerLines = document.querySelectorAll('.hamburger-line')
+        const line1 = hamburgerLines[0] as HTMLElement
+        const line2 = hamburgerLines[1] as HTMLElement
+        const line3 = hamburgerLines[2] as HTMLElement
+        line1.style.transform = 'rotate(0) translateY(0)'
+        line2.style.opacity = '1'
+        line3.style.transform = 'rotate(0) translateY(0)'
+      }
+    })
+  }
+</script>

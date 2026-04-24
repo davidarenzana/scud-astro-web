@@ -1,0 +1,101 @@
+---
+
+---
+
+<button
+  id="hamburger"
+  class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 cursor-pointer group"
+  aria-label="Toggle navigation menu"
+  aria-expanded="false"
+  aria-controls="nav-menu"
+>
+  <span
+    class="hamburger-line line1 w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"
+  ></span>
+  <span
+    class="hamburger-line line2 w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"
+  ></span>
+  <span
+    class="hamburger-line line3 w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"
+  ></span>
+</button>
+
+<script>
+  const hamburger = document.getElementById('hamburger')
+  const navMenu = document.getElementById('nav-menu')
+  const hamburgerLines = document.querySelectorAll('.hamburger-line')
+
+  if (hamburger && navMenu) {
+    let isOpen = false
+
+    function toggleMenu() {
+      isOpen = !isOpen
+
+      // Toggle menu visibility
+      if (isOpen) {
+        navMenu.classList.remove('hidden')
+        navMenu.classList.add('flex')
+      } else {
+        navMenu.classList.add('hidden')
+        navMenu.classList.remove('flex')
+      }
+
+      // Update aria attributes
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+
+      // Animate hamburger lines
+      animateHamburger()
+    }
+
+    function animateHamburger() {
+      const line1 = hamburgerLines[0] as HTMLElement
+      const line2 = hamburgerLines[1] as HTMLElement
+      const line3 = hamburgerLines[2] as HTMLElement
+
+      if (isOpen) {
+        // Transform to cross
+        line1.style.transform = 'rotate(45deg) translateY(10px)'
+        line2.style.opacity = '0'
+        line3.style.transform = 'rotate(-45deg) translateY(-10px)'
+      } else {
+        // Transform back to hamburger
+        line1.style.transform = 'rotate(0) translateY(0)'
+        line2.style.opacity = '1'
+        line3.style.transform = 'rotate(0) translateY(0)'
+      }
+    }
+
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', toggleMenu)
+
+    // Close menu when a link is clicked
+    const navLinks = navMenu.querySelectorAll('a')
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        isOpen = false
+        navMenu.classList.add('hidden')
+        navMenu.classList.remove('flex')
+        hamburger.setAttribute('aria-expanded', 'false')
+        animateHamburger()
+      })
+    })
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement
+      if (isOpen && !hamburger.contains(target) && !navMenu.contains(target)) {
+        isOpen = false
+        navMenu.classList.add('hidden')
+        navMenu.classList.remove('flex')
+        hamburger.setAttribute('aria-expanded', 'false')
+        animateHamburger()
+      }
+    })
+  }
+</script>
+
+<style>
+  .hamburger-line {
+    transition: all 0.3s ease;
+  }
+</style>

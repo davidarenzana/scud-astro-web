@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../../utils/i18n'
 import { getI18n } from '../../utils/i18n'
+import NavigationMenu from './NavigationMenu.astro'
 
 export interface Props {
   locale?: Locale
@@ -17,14 +18,4 @@ const navItems = [
 ]
 ---
 
-<nav>
-  <ul class="flex list-none gap-4 p-0 m-0 font-normal">
-    {
-      navItems.map((item) => (
-        <li class="hover:text-fucsia transition-colors">
-          <a href={item.href}>{item.label}</a>
-        </li>
-      ))
-    }
-  </ul>
-</nav>
+<NavigationMenu client:load navItems={navItems} />
