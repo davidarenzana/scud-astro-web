@@ -47,3 +47,12 @@ For detailed workflows, see `DEVELOPMENT.md`:
 - **New Page**: Use `scud-astro-add-page` skill or follow 3-step manual process
 - **New Component**: Inherit locale via props, use `getCurrentLocale()` + `getI18n()`
 - **New Translation**: Add to all 3 `src/i18n/{es,ca,en}.json` files simultaneously
+
+## Additional Context
+
+Specialized context available in `.copilot-context/` for quick reference:
+- `.copilot-context/architecture.md` — Why decisions were made
+- `.copilot-context/code-style.md` — Code formatting quick reference
+- `.copilot-context/i18n-patterns.md` — Common i18n workflows
+- `.copilot-context/commands.md` — All development commands
+- `.copilot-context/troubleshooting.md` — Common issues & fixes

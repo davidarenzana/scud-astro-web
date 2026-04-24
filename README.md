@@ -41,6 +41,16 @@ pnpm preview
 
 To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
+## 📚 Documentation
+
+- **[AGENTS.md](./AGENTS.md)** — Quick reference for AI agents
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)** — Technical architecture & design decisions
+- **[DEVELOPMENT.md](./DEVELOPMENT.md)** — Setup, workflows, and troubleshooting guide
+- **[NAMING_CONVENTIONS.md](./NAMING_CONVENTIONS.md)** — Code standards & conventions
+- **[.copilot-context/](./.copilot-context/)** — Specialized context for Copilot (architecture, code-style, i18n patterns, commands, troubleshooting)
+- **[.agents/](./.agents/)** — Automation skills & workflows
+- **[.github/instructions/](./.github/instructions/)** — Contribution guidelines & commit rules
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
