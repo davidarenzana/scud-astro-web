@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import LanguageSwitcher from '../LanguageSwitcher.astro'
 import { getCurrentLocale, getI18n } from '../../utils/i18n'
 import scudLogoDark from '../../assets/scud-logo-dark.svg'
+import ContactInfo from '../ui/ContactInfo.astro'
 
 const currentLocale = getCurrentLocale(Astro)
 const i18n = getI18n(currentLocale)
@@ -15,7 +16,7 @@ const copyrightYear = new Date().getFullYear()
     <LanguageSwitcher />
   </section>
   <section class="border-b border-gray-light py-4">
-    /* TO DO: Add additional footer content here */
+    <ContactInfo />
   </section>
   <section class="py-2">
     <p>© {copyrightYear} Scud Security. {i18n.footer.copyright}</p>

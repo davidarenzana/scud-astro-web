@@ -1,86 +1,37 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { getI18n, getLocaleFromPath, type Locale } from "../utils/i18n";
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getI18n, getLocaleFromPath, type Locale } from '../utils/i18n'
 
-const locales: Locale[] = ["es", "ca", "en"];
-const currentLocale = getLocaleFromPath(Astro.url.pathname);
-const i18n = getI18n(currentLocale);
+const locales: Locale[] = ['es', 'ca', 'en']
+const currentLocale = getLocaleFromPath(Astro.url.pathname)
+const i18n = getI18n(currentLocale)
 
 // Extraer la ruta actual sin el prefijo de idioma
-const pathname = Astro.url.pathname;
-const pathWithoutLocale = pathname
-  .replace(/^\/(ca|en)\//, "/")
-  .replace(/^\/$/, "");
+const pathname = Astro.url.pathname
+const pathWithoutLocale = pathname.replace(/^\/(ca|en)\//, '/').replace(/^\/$/, '')
 
 // Generar URLs para cada idioma
 const getUrlForLocale = (locale: Locale) => {
-  return getRelativeLocaleUrl(locale, pathWithoutLocale);
-};
+  return getRelativeLocaleUrl(locale, pathWithoutLocale)
+}
 ---
 
 <div class="language-switcher">
-  <ul class="language-list">
+  <ul class="language-list flex gap-8 font-light">
     {
-      locales.map((locale) => (
-        <li class="language-item">
-          <a
-            href={getUrlForLocale(locale)}
-            class={`language-link ${currentLocale === locale ? "active" : ""}`}
-            hreflang={locale}
-            aria-current={currentLocale === locale ? "page" : undefined}
-          >
-            {i18n.language[locale]}
-          </a>
-        </li>
-      ))
+      locales
+        .filter((locale) => locale !== currentLocale)
+        .map((locale) => (
+          <li class="language-item">
+            <a
+              href={getUrlForLocale(locale)}
+              class="language-link transition-all duration-200 hover:font-normal"
+              hreflang={locale}
+            >
+              {i18n.language[locale]}
+            </a>
+          </li>
+        ))
     }
   </ul>
 </div>
-
-<style>
-  .language-switcher {
-    display: flex;
-    align-items: center;
-  }
-
-  .language-list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 1rem;
-  }
-
-  .language-item {
-    display: flex;
-  }
-
-  .language-link {
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: inherit;
-    border-radius: 0.25rem;
-    transition: background-color 0.2s;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  .language-link:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  .language-link.active {
-    background-color: rgba(0, 0, 0, 0.1);
-    font-weight: 600;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .language-link:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .language-link.active {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
-  }
-</style>

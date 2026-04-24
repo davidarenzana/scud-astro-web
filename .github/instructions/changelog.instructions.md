@@ -3,6 +3,7 @@
 ## When to Update CHANGELOG.md
 
 Update `CHANGELOG.md` automatically when:
+
 1. **Merging a pull request into main** — Add a new dated section with the changes
 2. **User requests changelog update** — Update immediately
 3. **After pushing commits to main** — Group related changes
@@ -15,13 +16,16 @@ Follow [Keep a Changelog](https://keepachangelog.com/) format:
 ## YYYY-MM-DD
 
 ### Added
+
 - Feature description 1
 - Feature description 2
 
 ### Fixed
+
 - Bug fix description 1
 
 ### Changed
+
 - Behavior change 1
 ```
 
@@ -51,21 +55,26 @@ Follow [Keep a Changelog](https://keepachangelog.com/) format:
 **PR Title**: "Add responsive header with hamburger menu"
 
 **Changes detected**:
+
 - New files: `HamburgerButton.astro`, `NavigationMenu.astro`, `menuManager.ts`
 - Modified: `tailwind.config.ts`, `Header.astro`
 
 **CHANGELOG update**:
+
 ```markdown
 ## 2026-04-24
 
 ### Added
+
 - Responsive hamburger menu with animated 3-line to cross transformation
 - Custom 876px breakpoint for mobile/desktop navigation
 
 ### Fixed
+
 - Hamburger button visibility at breakpoint
 
 ### Changed
+
 - Refactored menu state logic into reusable utilities
 ```
 

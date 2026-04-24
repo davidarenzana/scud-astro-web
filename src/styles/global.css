@@ -4,7 +4,8 @@
   --color-primary: #ec6565;
   --color-fucsia: #e175ea;
   --color-cyan: #8cf1ff;
-  --color-background: #0e0a18;
+  --color-gray: #0e0a18;
+  --color-gray-light: #ebebeb;
   --color-background-glass: #2c2936f2;
 
   --container-width: 1440px;
