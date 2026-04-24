@@ -51,39 +51,4 @@ const { navItems } = Astro.props
     );
     border-image: linear-gradient(to right, var(--color-fucsia) 0%, var(--color-cyan) 100%) 1;
   }
-
-  /* Solo animar en mobile */
-  @media (max-width: 875px) {
-    #nav-menu.flex {
-      animation: slideUp 0.3s ease-out forwards;
-    }
-
-    #nav-menu.hidden {
-      animation: slideDown 0.3s ease-in forwards;
-    }
-  }
-
-  @keyframes slideDown {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-20px);
-      visibility: hidden;
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-      visibility: hidden;
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 </style>
