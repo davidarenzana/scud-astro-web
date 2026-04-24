@@ -10,10 +10,10 @@ const currentLocale = getCurrentLocale(Astro)
 ---
 
 <header
-  class="sticky mx-auto w-full bg-background-glass rounded-[40px] flex items-center justify-between px-4 lg:px-6 md:py-4 z-50 header"
+  class="sticky mx-auto w-full bg-background-glass rounded-[40px] flex items-center justify-between px-4 lg:px-6 py-4 z-50 header"
 >
   <Image src={scudLogo} alt="Scud Security" width={130} height={30} class="h-auto" />
-  <div class="flex items-center justify-end gap-2 md:gap-6flex-1 lg:flex-none">
+  <div class="flex items-center justify-end gap-2 lg:gap-6 flex-1 lg:flex-none">
     <Navigation locale={currentLocale} />
     <HamburgerButton />
     <ButtonGradient />
@@ -25,7 +25,7 @@ const currentLocale = getCurrentLocale(Astro)
     top: 16px;
     min-height: 70px;
     max-width: 1040px;
-    @media (min-width: 768px) {
+    @media (min-width: 876px) {
       top: 32px;
     }
   }

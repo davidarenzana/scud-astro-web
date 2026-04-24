@@ -16,7 +16,7 @@ const { navItems } = Astro.props
   <!-- Navigation Menu -->
   <ul
     id="nav-menu"
-    class="hidden lg:flex list-none gap-0 lg:gap-4 p-0 m-0 font-normal flex-col lg:flex-row lg:items-center fixed lg:static left-0 right-0 top-[86px] md:top-[112px] lg:top-0 bg-background-glass lg:bg-transparent z-40 lg:z-auto w-full lg:w-auto max-h-[calc(100vh-102px)] lg:max-h-none overflow-y-auto lg:overflow-y-visible border-t-2 lg:border-t-0 border-gradient-border"
+    class="hidden lg:flex list-none gap-0 lg:gap-4 p-0 m-0 font-normal flex-col lg:flex-row lg:items-center fixed lg:static left-0 right-0 top-[102px] lg:top-0 bg-background-glass lg:bg-transparent z-40 lg:z-auto w-full lg:w-auto max-h-[calc(100vh-102px)] lg:max-h-none overflow-y-auto lg:overflow-y-visible border-t-2 lg:border-t-0 border-gradient-border"
   >
     {
       navItems.map((item) => (
@@ -31,53 +31,15 @@ const { navItems } = Astro.props
 </nav>
 
 <script>
-  const navMenu = document.getElementById('nav-menu')
-  const hamburger = document.getElementById('hamburger')
+  import { getMenuElements, isMenuOpen } from '../../utils/menuManager'
 
-  if (hamburger && navMenu) {
-    function closeMenu() {
-      navMenu!.classList.add('hidden')
-      navMenu!.classList.remove('flex')
-      hamburger!.setAttribute('aria-expanded', 'false')
-      const hamburgerLines = document.querySelectorAll('.hamburger-line')
-      const line1 = hamburgerLines[0] as HTMLElement
-      const line2 = hamburgerLines[1] as HTMLElement
-      const line3 = hamburgerLines[2] as HTMLElement
-      line1.style.transform = 'rotate(0) translateY(0)'
-      line2.style.opacity = '1'
-      line3.style.transform = 'rotate(0) translateY(0)'
-    }
+  const elements = getMenuElements()
+  if (!elements) throw new Error('Menu elements not found')
 
-    function openMenu() {
-      navMenu!.classList.remove('hidden')
-      navMenu!.classList.add('flex')
-      hamburger!.setAttribute('aria-expanded', 'true')
-    }
+  const { menu, hamburger, lines } = elements
 
-    // Close menu when a link is clicked
-    const navLinks = navMenu!.querySelectorAll('a')
-    navLinks.forEach((link) => {
-      link.addEventListener('click', closeMenu)
-    })
-
-    // Toggle menu on hamburger click (from HamburgerButton)
-    hamburger!.addEventListener('click', () => {
-      if (navMenu!.classList.contains('hidden')) {
-        openMenu()
-      } else {
-        closeMenu()
-      }
-    })
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement
-      const isOpen = !navMenu!.classList.contains('hidden')
-      if (isOpen && !hamburger!.contains(target) && !navMenu!.contains(target)) {
-        closeMenu()
-      }
-    })
-  }
+  // The hamburger button handles all interactions
+  // This script just ensures cleanup on navigation (no need to close menu on link click here)
 </script>
 
 <style>
