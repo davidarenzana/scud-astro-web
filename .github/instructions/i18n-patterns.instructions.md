@@ -105,6 +105,7 @@ const i18n = getI18n(locale)
 ```
 
 **Notes**:
+
 - All translations go in a single `common.json` file with locale keys (es, ca, en)
 - Keep structure identical across all 3 locales
 - Keys are case-sensitive

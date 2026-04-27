@@ -1,12 +1,12 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { getCurrentLocale } from "../../utils/i18n";
+import Layout from '../../layouts/Layout.astro'
+import { getCurrentLocale } from '../../utils/i18n'
 
-const locale = getCurrentLocale(Astro);
-const pageContent = await import("../../i18n/pages/index.json");
-const index = pageContent[locale];
+const locale = getCurrentLocale(Astro)
+const pageContent = await import('../../i18n/pages/index.json')
+const { title } = pageContent[locale];
 ---
 
 <Layout>
-  <h1>{index.title}</h1>
+  <h1>{title}</h1>
 </Layout>
