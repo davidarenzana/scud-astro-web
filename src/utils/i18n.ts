@@ -1,5 +1,5 @@
 import type { AstroGlobal } from 'astro'
-import i18nData from '../i18n/index.json'
+import i18nData from '../i18n/common.json'
 
 const translations = i18nData as Record<string, unknown>
 
