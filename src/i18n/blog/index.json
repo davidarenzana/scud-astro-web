@@ -1,0 +1,92 @@
+{
+  "es": [
+    {
+      "id": "post-1",
+      "slug": "post-1",
+      "title": "Guía de Seguridad 2026",
+      "excerpt": "Las mejores prácticas para proteger tu negocio",
+      "date": "2026-04-15"
+    },
+    {
+      "id": "post-2",
+      "slug": "post-2",
+      "title": "Ataques Comunes a Empresas",
+      "excerpt": "Cómo identificar y prevenir amenazas",
+      "date": "2026-04-10"
+    },
+    {
+      "id": "post-3",
+      "slug": "post-3",
+      "title": "Cifrado de Datos",
+      "excerpt": "Todo lo que necesitas saber sobre encriptación",
+      "date": "2026-04-05"
+    },
+    {
+      "id": "post-4",
+      "slug": "post-4",
+      "title": "GDPR y Cumplimiento Normativo",
+      "excerpt": "Asegurar tu empresa está protegida legalmente",
+      "date": "2026-03-30"
+    }
+  ],
+  "ca": [
+    {
+      "id": "post-1",
+      "slug": "post-1",
+      "title": "Guia de Seguretat 2026",
+      "excerpt": "Les millors pràctiques per protegir el teu negoci",
+      "date": "2026-04-15"
+    },
+    {
+      "id": "post-2",
+      "slug": "post-2",
+      "title": "Atacs Comuns a Empreses",
+      "excerpt": "Com identificar i prevenir amenaces",
+      "date": "2026-04-10"
+    },
+    {
+      "id": "post-3",
+      "slug": "post-3",
+      "title": "Xifratge de Dades",
+      "excerpt": "Tot el que necessites saber sobre encriptació",
+      "date": "2026-04-05"
+    },
+    {
+      "id": "post-4",
+      "slug": "post-4",
+      "title": "GDPR i Compliment Normatiu",
+      "excerpt": "Assegurar que la teva empresa està protegida legalment",
+      "date": "2026-03-30"
+    }
+  ],
+  "en": [
+    {
+      "id": "post-1",
+      "slug": "post-1",
+      "title": "Security Guide 2026",
+      "excerpt": "Best practices to protect your business",
+      "date": "2026-04-15"
+    },
+    {
+      "id": "post-2",
+      "slug": "post-2",
+      "title": "Common Attacks on Businesses",
+      "excerpt": "How to identify and prevent threats",
+      "date": "2026-04-10"
+    },
+    {
+      "id": "post-3",
+      "slug": "post-3",
+      "title": "Data Encryption",
+      "excerpt": "Everything you need to know about encryption",
+      "date": "2026-04-05"
+    },
+    {
+      "id": "post-4",
+      "slug": "post-4",
+      "title": "GDPR and Regulatory Compliance",
+      "excerpt": "Ensure your company is legally protected",
+      "date": "2026-03-30"
+    }
+  ]
+}
