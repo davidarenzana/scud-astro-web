@@ -4,6 +4,8 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "types": ["node"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "astro",
     "paths": {
       "@/*": ["src/*"]
     }

@@ -1,0 +1,68 @@
+{
+  "es": {
+    "title": "Servicios",
+    "subtitle": "Soluciones de ciberseguridad integrales",
+    "description": "Descubre nuestros servicios de seguridad informática",
+    "services": [
+      {
+        "id": "assessment",
+        "name": "Evaluación de Seguridad",
+        "description": "Análisis profundo de tu infraestructura"
+      },
+      {
+        "id": "monitoring",
+        "name": "Monitoreo Continuo",
+        "description": "Vigilancia 24/7 de tus sistemas"
+      },
+      {
+        "id": "incident",
+        "name": "Respuesta a Incidentes",
+        "description": "Equipo experto en crisis"
+      }
+    ]
+  },
+  "ca": {
+    "title": "Serveis",
+    "subtitle": "Solucions de ciberseguretat integrals",
+    "description": "Descobreix els nostres serveis de seguretat informàtica",
+    "services": [
+      {
+        "id": "assessment",
+        "name": "Avaluació de Seguretat",
+        "description": "Anàlisi profund de la teva infraestructura"
+      },
+      {
+        "id": "monitoring",
+        "name": "Monitoratge Continu",
+        "description": "Vigilància 24/7 dels teus sistemes"
+      },
+      {
+        "id": "incident",
+        "name": "Resposta a Incidents",
+        "description": "Equip expert en crisis"
+      }
+    ]
+  },
+  "en": {
+    "title": "Services",
+    "subtitle": "Comprehensive cybersecurity solutions",
+    "description": "Discover our information security services",
+    "services": [
+      {
+        "id": "assessment",
+        "name": "Security Assessment",
+        "description": "In-depth analysis of your infrastructure"
+      },
+      {
+        "id": "monitoring",
+        "name": "Continuous Monitoring",
+        "description": "24/7 surveillance of your systems"
+      },
+      {
+        "id": "incident",
+        "name": "Incident Response",
+        "description": "Expert crisis team"
+      }
+    ]
+  }
+}

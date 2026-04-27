@@ -21,11 +21,11 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.defaultSetting.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
   "typescript.defaultSetting.inlayHints.functionLikeReturnTypes.enabled": true,
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "ngClass"
-  ],
+  "typescript.check.npmIsInstalled": false,
+  "pylance.analysis.typeCheckingMode": "strict",
+  "pylance.analysis.completeFunctionBodies": true,
+  "typescript.lib": ["es2022", "dom", "dom.iterable"],
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,

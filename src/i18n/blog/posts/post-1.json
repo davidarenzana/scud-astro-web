@@ -1,0 +1,26 @@
+{
+  "es": {
+    "title": "Guía de Seguridad 2026",
+    "slug": "post-1",
+    "date": "2026-04-15",
+    "author": "Scud Security",
+    "excerpt": "Las mejores prácticas para proteger tu negocio",
+    "content": "En 2026, la ciberseguridad es más importante que nunca. Las amenazas evolucionan constantemente y los negocios deben estar preparados..."
+  },
+  "ca": {
+    "title": "Guia de Seguretat 2026",
+    "slug": "post-1",
+    "date": "2026-04-15",
+    "author": "Scud Security",
+    "excerpt": "Les millors pràctiques per protegir el teu negoci",
+    "content": "El 2026, la ciberseguretat és més important que mai. Les amenaces evolucionan constantment i els negocis han d'estar preparats..."
+  },
+  "en": {
+    "title": "Security Guide 2026",
+    "slug": "post-1",
+    "date": "2026-04-15",
+    "author": "Scud Security",
+    "excerpt": "Best practices to protect your business",
+    "content": "In 2026, cybersecurity is more important than ever. Threats evolve constantly and businesses must be prepared..."
+  }
+}
