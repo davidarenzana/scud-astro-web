@@ -1,9 +1,7 @@
 import type { AstroGlobal } from 'astro'
-import es from '../i18n/es.json'
-import ca from '../i18n/ca.json'
-import en from '../i18n/en.json'
+import i18nData from '../i18n/index.json'
 
-const translations = { es, ca, en }
+const translations = i18nData as Record<string, unknown>
 
 export type Locale = keyof typeof translations
 

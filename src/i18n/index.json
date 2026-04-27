@@ -1,0 +1,77 @@
+{
+  "es": {
+    "nav": {
+      "services": "Servicios",
+      "how": "¿Cómo funciona?",
+      "why": "¿Por qué Scud?",
+      "hacked": "¿Te han hackeado?"
+    },
+    "cta": {
+      "demo": "Solicita una demo"
+    },
+    "language": {
+      "es": "Español",
+      "ca": "Catalán",
+      "en": "Inglés"
+    },
+    "routes": {
+      "services": "#services",
+      "how": "#how",
+      "why": "#why",
+      "hacked": "#hacked"
+    },
+    "footer": {
+      "copyright": "Todos los derechos reservados"
+    }
+  },
+  "en": {
+    "nav": {
+      "services": "Services",
+      "how": "How it works",
+      "why": "Why Scud?",
+      "hacked": "Have you been hacked?"
+    },
+    "cta": {
+      "demo": "Request a Demo"
+    },
+    "language": {
+      "es": "Spanish",
+      "ca": "Catalan",
+      "en": "English"
+    },
+    "routes": {
+      "services": "#services",
+      "how": "#how",
+      "why": "#why",
+      "hacked": "#hacked"
+    },
+    "footer": {
+      "copyright": "All rights reserved"
+    }
+  },
+  "ca": {
+    "nav": {
+      "services": "Serveis",
+      "how": "Com funciona?",
+      "why": "Per què Scud?",
+      "hacked": "T'han hackejat?"
+    },
+    "cta": {
+      "demo": "Sol·licita una demo"
+    },
+    "language": {
+      "es": "Espanyol",
+      "ca": "Català",
+      "en": "Anglès"
+    },
+    "routes": {
+      "services": "#services",
+      "how": "#how",
+      "why": "#why",
+      "hacked": "#hacked"
+    },
+    "footer": {
+      "copyright": "Tots els drets reservats"
+    }
+  }
+}
