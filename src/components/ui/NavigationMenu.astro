@@ -31,12 +31,10 @@ const { navItems } = Astro.props
 </nav>
 
 <script>
-  import { getMenuElements, isMenuOpen } from '../../utils/menuManager'
+  import { getMenuElements } from '../../utils/menuManager'
 
-  const elements = getMenuElements()
-  if (!elements) throw new Error('Menu elements not found')
-
-  const { menu, hamburger, lines } = elements
+  const _elements = getMenuElements()
+  if (!_elements) throw new Error('Menu elements not found')
 
   // The hamburger button handles all interactions
   // This script just ensures cleanup on navigation (no need to close menu on link click here)

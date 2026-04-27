@@ -1,5 +1,7 @@
 import js from '@eslint/js'
 import astro from 'eslint-plugin-astro'
+import astroParser from 'astro-eslint-parser'
+import typescriptParser from '@typescript-eslint/parser'
 
 export default [
   {
@@ -26,11 +28,21 @@ export default [
   },
   {
     files: ['**/*.astro'],
+    languageOptions: {
+      parser: astroParser,
+      parserOptions: {
+        parser: typescriptParser,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        extraFileExtensions: ['.astro'],
+      },
+      globals: {
+        Astro: 'readonly',
+      },
+    },
     rules: {
       'no-undef': 'off',
-    },
-    linterOptions: {
-      noInlineConfig: false,
+      'no-unused-vars': 'off',
     },
   },
   {
