@@ -58,121 +58,7 @@ const i18n = getI18n(locale)
 {i18n.features.map((feature) => <li>{feature}</li>)}
 ```
 
-## Pattern 3: Page-Specific Content (Hybrid i18n) ⭐
-
-Uses **1 file per page** with all 3 languages inside. Automatically merges common i18n (nav, footer) + page-specific content.
-
-### Structure
-
-```
-src/i18n/
-  ├── es.json, ca.json, en.json     ← Common (nav, footer, UI)
-  └── pages/
-      ├── services.json             ← {es: {...}, ca: {...}, en: {...}}
-      ├── pricing.json
-      └── about.json
-```
-
-### Example: services.json
-
-```json
-{
-  "es": {
-    "title": "Servicios",
-    "description": "Soluciones de seguridad"
-  },
-  "ca": {
-    "title": "Serveis",
-    "description": "Solucions de seguretat"
-  },
-  "en": {
-    "title": "Services",
-    "description": "Security solutions"
-  }
-}
-```
-
-### Usage in Page
-
-```astro
----
-import Layout from '../layouts/Layout.astro'
-import { getCurrentLocale, getPageI18n } from '../utils/i18n'
-
-const locale = getCurrentLocale(Astro)
-const i18n = await getPageI18n('services', locale)
----
-
-<Layout>
-  <h1>{i18n.title}</h1>
-  <p>{i18n.description}</p>
-  <p>{i18n.nav.services}</p>
-  {/* Common i18n also available */}
-</Layout>
-```
-
-**Benefits**:
-
-- ✅ 1 file per page (scalable)
-- ✅ All languages visible at once
-- ✅ Guaranteed translation completeness
-- ✅ Automatic merge with common i18n
-
-### Adding a New Page
-
-1. **Create translations file** → `src/i18n/pages/contact.json`
-
-   ```json
-   { "es": {...}, "ca": {...}, "en": {...} }
-   ```
-
-2. **Create 3 page files** (es, ca, en)
-   ```astro
-   const i18n = await getPageI18n("contact", locale);
-   ```
-
----
-
-## Pattern 4: Blog Posts (Hybrid i18n)
-
-### Structure
-
-```
-src/i18n/blog/
-  ├── index.json            ← List of posts (per locale)
-  └── posts/
-      ├── post-1.json       ← {es: {...}, ca: {...}, en: {...}}
-      └── post-2.json
-```
-
-### Example: blog/posts/post-1.json
-
-```json
-{
-  "es": {
-    "title": "Guía de Seguridad 2026",
-    "content": "En 2026, la ciberseguridad..."
-  },
-  "ca": { "title": "Guia...", "content": "..." },
-  "en": { "title": "Security Guide 2026", "content": "..." }
-}
-```
-
-### Usage in Blog Post Page
-
-```astro
----
-const slug = Astro.params.slug
-const i18n = await getBlogI18n(slug, locale)
----
-
-<h1>{i18n.title}</h1>
-<p>{i18n.content}</p>
-```
-
----
-
-## Pattern 5: Adding a New Page (Legacy: Common-Only)
+## Pattern 3: Adding a New Page
 
 ### Automated (recommended)
 
@@ -208,15 +94,24 @@ const i18n = getI18n(locale)
 </Layout>
 ```
 
-**Step 3**: Add translations to all 3 JSON files
+**Step 3**: Add translations to `src/i18n/common.json`
 
 ```json
-// es.json: { "contact": { "title": "Contacto", "description": "..." } }
-// ca.json: { "contact": { "title": "Contacte", "description": "..." } }
-// en.json: { "contact": { "title": "Contact Us", "description": "..." } }
+{
+  "es": { "contact": { "title": "Contacto", "description": "..." }, ... },
+  "ca": { "contact": { "title": "Contacte", "description": "..." }, ... },
+  "en": { "contact": { "title": "Contact Us", "description": "..." }, ... }
+}
 ```
 
-## Pattern 6: Adding a Component with i18n
+**Notes**:
+- All translations go in a single `common.json` file with locale keys (es, ca, en)
+- Keep structure identical across all 3 locales
+- Keys are case-sensitive
+- No trailing commas in JSON
+- Restart dev server after adding keys
+
+## Pattern 4: Adding a Component with i18n
 
 ```astro
 ---
@@ -242,20 +137,34 @@ const i18n = getI18n(locale)
 </section>
 ```
 
-## Pattern 7: Adding a Translation Key
+## Pattern 5: Adding a Translation Key
 
-1. Add to `src/i18n/es.json`
-2. Add to `src/i18n/ca.json`
-3. Add to `src/i18n/en.json`
+All translations are stored in `src/i18n/common.json` with a structure organized by locale:
+
+```json
+{
+  "es": { "section": { "key": "Spanish text" } },
+  "ca": { "section": { "key": "Catalan text" } },
+  "en": { "section": { "key": "English text" } }
+}
+```
+
+**Steps**:
+
+1. Open `src/i18n/common.json`
+2. Add your key to all 3 locale sections (es, ca, en) - Keep structure identical
+3. Restart dev server: `pnpm dev`
+4. Use in components: `{i18n.section.key}`
 
 **Rules**:
 
-- Keep structure identical across all 3 files
+- Keep structure identical across all 3 locales
 - Keys are case-sensitive
 - No trailing commas in JSON
 - Restart dev server after adding keys
+- Always update all 3 locales (es, ca, en) simultaneously
 
-## Pattern 8: Using Routes in Navigation
+## Pattern 6: Using Routes in Navigation
 
 ```json
 { "routes": { "home": "/", "about": "/about/", "contact": "/contact/" } }
@@ -270,30 +179,38 @@ const i18n = getI18n(locale)
 
 Routes don't have locale prefix — Astro adds it automatically.
 
-## Pattern 9: Language Switcher
+## Pattern 7: Language Switcher
 
 ```astro
 ---
-import { getCurrentLocale, getI18n, getRelativeLocaleUrl } from '../utils/i18n'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getCurrentLocale, getI18n } from '../utils/i18n'
+
 const currentLocale = getCurrentLocale(Astro)
 const i18n = getI18n(currentLocale)
+
+// Remove locale prefix from URL for proper URL construction
+const pathWithoutLocale =
+  Astro.url.pathname
+    .replace(/^\/(es|ca|en)/, '') // Remove /es, /ca, /en prefix
+    .replace(/\/$/, '') || '/' // Keep single / at root
 ---
 
 <div class="language-switcher">
   <a
-    href={getRelativeLocaleUrl('es', Astro.url.pathname)}
+    href={getRelativeLocaleUrl('es', pathWithoutLocale)}
     class:list={{ active: currentLocale === 'es' }}
   >
     {i18n.language.es}
   </a>
   <a
-    href={getRelativeLocaleUrl('ca', Astro.url.pathname)}
+    href={getRelativeLocaleUrl('ca', pathWithoutLocale)}
     class:list={{ active: currentLocale === 'ca' }}
   >
     {i18n.language.ca}
   </a>
   <a
-    href={getRelativeLocaleUrl('en', Astro.url.pathname)}
+    href={getRelativeLocaleUrl('en', pathWithoutLocale)}
     class:list={{ active: currentLocale === 'en' }}
   >
     {i18n.language.en}
