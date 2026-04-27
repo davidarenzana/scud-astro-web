@@ -1,12 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import { getCurrentLocale } from '../../utils/i18n'
-
-const locale = getCurrentLocale(Astro)
-const pageContent = await import('../../i18n/pages/index.json')
-const page = pageContent[locale]
+import HomePage from '../../components/pages/HomePage.astro'
 ---
 
-<Layout>
-  <h1>{page.title}</h1>
-</Layout>
+<HomePage />

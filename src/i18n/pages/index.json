@@ -1,11 +1,14 @@
 {
   "es": {
-    "title": "Inicio"
+    "title": "Inicio",
+    "description": "Bienvenido a la página de inicio de Scud Astro Web. Aquí encontrarás toda la información sobre nuestros servicios y productos."
   },
   "ca": {
-    "title": "Inici"
+    "title": "Inici",
+    "description": "Benvingut a la pàgina d'inici de Scud Astro Web. Aquí trobaràs tota la informació sobre els nostres serveis i productes."
   },
   "en": {
-    "title": "Home"
+    "title": "Home",
+    "description": "Welcome to the home page of Scud Astro Web. Here you will find all the information about our services and products."
   }
 }
