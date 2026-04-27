@@ -1,7 +1,26 @@
 ---
-import LanguageSwitcher from "../LanguageSwitcher.astro";
+import { Image } from 'astro:assets'
+import LanguageSwitcher from '../LanguageSwitcher.astro'
+import { getCurrentLocale, getI18n } from '../../utils/i18n'
+import scudLogoDark from '../../assets/scud-logo-dark.svg'
+import ContactInfo from '../ui/ContactInfo.astro'
+
+const currentLocale = getCurrentLocale(Astro)
+const i18n = getI18n(currentLocale)
+const copyrightYear = new Date().getFullYear()
 ---
 
-<footer class="max-w-(--container-width) mx-auto w-full px-4">
-  <LanguageSwitcher />
+<footer class="bg-white text-gray w-full">
+  <div class="max-w-(--container-width) mx-auto px-4">
+    <section class="py-4 flex items-center justify-between border-b border-gray-light">
+      <Image src={scudLogoDark} alt="Scud Security Logo" width={130} height={30} class="h-auto" />
+      <LanguageSwitcher />
+    </section>
+    <section class="border-b border-gray-light py-8">
+      <ContactInfo />
+    </section>
+    <section class="py-2 font-light">
+      <p>© {copyrightYear} Scud Security. {i18n.footer.copyright}</p>
+    </section>
+  </div>
 </footer>
