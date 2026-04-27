@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
+import ButtonGradient from '../ui/ButtonGradient.astro'
 import { getCurrentLocale } from '../../utils/i18n'
+import dashboardImage from '../../assets/images/scud-dashboard.png'
 
 const locale = getCurrentLocale(Astro)
 const pageContent = await import('../../i18n/pages/index.json')
@@ -8,6 +11,21 @@ const page = pageContent[locale]
 ---
 
 <Layout>
-  <h1>{page.title}</h1>
-  <p>{page.description}</p>
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <div class="flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
+      <h1 class="text-4xl/12 md:text-7xl/21 font-black whitespace-pre-line">
+        {page.title}
+      </h1>
+      <p class="text-3xl font-light">{page.subtitle}</p>
+      <p class="text-xl font-light">{page.description}</p>
+      <ButtonGradient />
+    </div>
+    <Image
+      src={dashboardImage}
+      alt="Scudsecurity dashboard"
+      width={696}
+      height={500}
+      class="w-full h-auto max-w-[696px] mx-auto rounded-lg shadow-lg"
+    />
+  </section>
 </Layout>

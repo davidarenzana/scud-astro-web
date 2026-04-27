@@ -10,9 +10,12 @@
 
   --container-width: 1440px;
 
-  --gradient-border:
+  --gradient-border-glass:
     linear-gradient(#2a2735 0 0) padding-box,
-    linear-gradient(to right, #e175ea 12.77%, #8cf1ff 114.5%) border-box;
+    linear-gradient(to right, var(--color-fucsia) 12.77%, var(--color-cyan) 114.5%) border-box;
+  --gradient-border:
+    linear-gradient(var(--color-gray) 0 0) padding-box,
+    linear-gradient(to right, var(--color-fucsia) 12.77%, var(--color-cyan) 114.5%) border-box;
 }
 
 @theme inline {

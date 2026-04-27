@@ -1,14 +1,17 @@
 {
   "es": {
-    "title": "Inicio",
-    "description": "Bienvenido a la página de inicio de Scud Astro Web. Aquí encontrarás toda la información sobre nuestros servicios y productos."
+    "title": "La Ciberseguridad, \nRedefinida.",
+    "subtitle": "Protege tu Compañía con nuestra plataforma integral.",
+    "description": "Detectamos proactivamente brechas de seguridad y respondemos a ciberataques para proteger tu infraestructura tecnológica. ¡Descubre cómo!"
   },
   "ca": {
-    "title": "Inici",
-    "description": "Benvingut a la pàgina d'inici de Scud Astro Web. Aquí trobaràs tota la informació sobre els nostres serveis i productes."
+    "title": "La Ciberseguretat, \nRedefinida.",
+    "subtitle": "Protegeix la teva Companyia amb la nostra plataforma integral.",
+    "description": "Detectem proactivament bretxes de seguretat i responem a ciberatacs per protegir la teva infraestructura tecnològica. Descobreix com!"
   },
   "en": {
-    "title": "Home",
-    "description": "Welcome to the home page of Scud Astro Web. Here you will find all the information about our services and products."
+    "title": "Cybersecurity, \nRedefined.",
+    "subtitle": "Protect your company with our comprehensive platform.",
+    "description": "We proactively detect security breaches and respond to cyber-attacks to protect your technology infrastructure. Find out how!"
   }
 }
