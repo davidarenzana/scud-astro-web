@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2026-04-27
+
+### Added
+
+- Footer component with multilingual support (es, ca, en)
+- Contact info component displaying phone, email, and address
+- New theme color tokens (`--color-gray`, `--color-gray-light`)
+- Footer translations for Spanish, Catalan, and English
+- Dark logo asset (`scud-logo-dark.svg`) for footer branding
+
+### Fixed
+
+- Navigation component hydration directive error (removed `client:load` from static menu)
+- Header logo alt text for better accessibility
+
+### Changed
+
+- Global CSS color scheme (renamed `--color-background` to `--color-gray`)
+- Body background utility updated to use new theme tokens
+- Language switcher styling refactored to Tailwind utilities
+- Footer layout with logo, language switcher, contact info, and copyright sections
+
+---
+
 ## 2026-04-24
 
 ### Added
