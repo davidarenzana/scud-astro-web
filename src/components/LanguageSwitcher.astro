@@ -19,19 +19,21 @@ const getUrlForLocale = (locale: Locale) => {
 <div class="language-switcher">
   <ul class="language-list flex gap-8 font-light">
     {
-      locales
-        .filter((locale) => locale !== currentLocale)
-        .map((locale) => (
-          <li class="language-item">
-            <a
-              href={getUrlForLocale(locale)}
-              class="language-link transition-all duration-200 hover:font-normal"
-              hreflang={locale}
-            >
-              {i18n.language[locale]}
-            </a>
-          </li>
-        ))
+      locales.map((locale) => (
+        <li class="language-item">
+          <a
+            href={getUrlForLocale(locale)}
+            class:list={{
+              'language-link transition-all duration-200 hover:font-normal': true,
+              'font-normal': locale === currentLocale,
+            }}
+            hreflang={locale}
+            aria-current={locale === currentLocale ? 'true' : undefined}
+          >
+            {i18n.language[locale]}
+          </a>
+        </li>
+      ))
     }
   </ul>
 </div>
