@@ -27,6 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Language switcher styling refactored to Tailwind utilities
 - Footer layout with logo, language switcher, contact info, and copyright sections
 
+### Removed
+
+- Redundant `src/i18n/blog/index.json` (posts now managed through `src/i18n/blog/posts/`)
+
 ---
 
 ## 2026-04-24
