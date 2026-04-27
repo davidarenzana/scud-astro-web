@@ -14,11 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New theme color tokens (`--color-gray`, `--color-gray-light`)
 - Footer translations for Spanish, Catalan, and English
 - Dark logo asset (`scud-logo-dark.svg`) for footer branding
+- TypeScript interfaces for i18n structure (`CommonTranslations`, `I18nData`) for type safety
 
 ### Fixed
 
 - Navigation component hydration directive error (removed `client:load` from static menu)
 - Header logo alt text for better accessibility
+- **i18n type safety**: Added proper TypeScript interfaces to eliminate 8 type errors in `i18n.ts`
+- **i18n compatibility**: Fixed `getI18n()` return type from `unknown` to `CommonTranslations`
+- **ButtonGradient.astro**: Type error resolved via i18n.ts fixes
 
 ### Changed
 
@@ -27,6 +31,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Language switcher styling refactored to Tailwind utilities
 - Footer layout with logo, language switcher, contact info, and copyright sections
 - i18n structure: unified locale-specific translation files (`es.json`, `en.json`, `ca.json`) into single `common.json` with nested locale structure
+
+### Removed
+
+- Unused i18n functions: `getPageI18n()`, `getBlogI18n()`, `getBlogIndex()` (dead code)
+- Empty file: `src/i18n/pages/index.json` (orphaned)
+- Stale i18n patterns from documentation (Pattern 3: Page-Specific and Pattern 4: Blog Posts)
 
 ### Removed
 
