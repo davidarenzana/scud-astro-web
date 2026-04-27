@@ -1,7 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCurrentLocale } from "../utils/i18n";
+
+const locale = getCurrentLocale(Astro);
+const pageContent = await import("../i18n/pages/index.json");
+const index = pageContent[locale];
 ---
 
 <Layout>
-  <h1>Home page</h1>
+  <h1>{index.title}</h1>
 </Layout>
